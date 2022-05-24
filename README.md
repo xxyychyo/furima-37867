@@ -29,7 +29,7 @@ has_many :purchases
 |send_day_id    |integer   |null: false|
 |derively_fee_id|integer   |null: false|
 |price          |integer   |null: false|
-|user_id        |references|null: false foreign_key: true|
+|user           |references|null: false foreign_key: true|
 
 
 Association
@@ -58,8 +58,8 @@ belongs_to :purchase
 ## purchases テーブル
 | Column     | Type       | Options                        |
 |----------|----------|------------------------------|
-|user_id   |references   |null: false, foreign_key: true|
-|product_id|references   |null: false, foreign_key: true|
+|user      |references   |null: false, foreign_key: true|
+|product   |references   |null: false, foreign_key: true|
 
 Association
 belongs_to :user
