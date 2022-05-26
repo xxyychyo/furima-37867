@@ -6,11 +6,10 @@ class User < ApplicationRecord
 
       validates :nickname, presence: true
       validates :birthday, presence: true 
-      validates :email, presence: true
 
         
      # 本人情報確認  
-     with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: 'Full-width characters' } do
+     with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'Full-width characters' } do
       validates :first_name
       validates :last_name        
      end
