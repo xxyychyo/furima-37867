@@ -17,7 +17,7 @@
     <ul class='lists-right'>
 
     <% if user_signed_in? %>
-      <%# deviseを導入できたら、ログインの有無で表示が変わるように分岐しましょう%>
+      <%# deviseを導入できたら、ログインの有無で表示が変わるように分岐しましょう %>
       <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
       <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
       <% else %>
@@ -28,3 +28,4 @@
     </ul>
   </div>
 </header>
+<%#20,26行目振り返りをした際に見やすいように残しています。%>

@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
       validates :nickname, presence: true
-      validates :birthday, presence: true
-      validates :email, presence: true, format: { with: /\A\S+@\S+\.\S+\z/, message: "can't be blank" }  
+      validates :birthday, presence: true 
+      validates :email, presence: true
 
         
      # 本人情報確認  
@@ -21,5 +21,5 @@ class User < ApplicationRecord
      with_options presence: true, format: { with: /\A[ァ-ヶー－]+\z/, message: 'Full-width katakana characters' } do
       validates :first_name_kana
       validates :last_name_kana
-    end
+     end
 end
