@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   #before_action :set_parents, only: [:new, :create]
-  
+  before_action :authenticate_user!, except: [:index,]
+
 
   def index
   end
