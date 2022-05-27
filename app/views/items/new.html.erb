@@ -9,7 +9,7 @@
 
    <%#= f.collection_select :category_id, @parents, :id, :name, {prompt: "選択してください"}, {class: "categoryForm", id: "category_form"} %>
 
- <%# インスタンスを渡して、エラー発生時にメッセージが表示させる。%>
+ <%# インスタンスを渡して、エラー発生時にメッセージが表示させる。振り返りをした際にわかりやすいように残してます。%>
     <%= render 'shared/error_messages', model: f.object %>
 
     <%# 商品画像 %>

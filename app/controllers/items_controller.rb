@@ -8,7 +8,6 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    #@item_image = ItemImage.new
   end
 
   def create
