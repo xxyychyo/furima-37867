@@ -32,6 +32,7 @@
     <%= link_to "削除", "#", method: :delete, class:"item-destroy" %>
     <%# 未購入品でない場合には、売り切れを表示 %>
     <%# <% elsif @item.order.present? %>
+    <%= link_to "売り切れました",item_path(@item),class:"disabled-button bold" %>
     <% else %>
    <%# 出品者以外かつ未購入品であれば、購入画面を表示 %>
     <%= link_to "購入画面に進む", "#" ,class:"item-red-btn"%>
@@ -105,9 +106,8 @@
       後ろの商品 ＞
     </a>
   </div>
-  <%# 詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
+  <%# 詳細ページで表示されている商品のカテゴリー名を表示する %>
   <a href="#" class="another-item"><%= @item.category.name %>をもっと見る</a>
-  <%# //詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
 </div>
 
 <%= render "shared/footer" %>
