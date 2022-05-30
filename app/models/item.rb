@@ -15,7 +15,6 @@ class Item < ApplicationRecord
   # （items・active_storage_blobsテーブルを関連付け）
   has_one_attached :image
 
-
   with_options presence: true do
     validates :name
     validates :explanation
