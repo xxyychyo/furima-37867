@@ -7,6 +7,8 @@ class User < ApplicationRecord
       validates :nickname, presence: true
       validates :birthday, presence: true 
 
+      # has_many :items
+      # has_many :orders
         
      # 本人情報確認  
      with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'Full-width characters' } do
