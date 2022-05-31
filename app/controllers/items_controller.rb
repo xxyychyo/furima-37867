@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :move_to_index, only: [:edit, :update,]
-  before_action :set_item, only: [:show, :edit, :update,]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = Item.includes(:user).order('created_at DESC')
@@ -36,6 +36,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+     # ログインしているユーザーと同一であればデータを削除する
+    if @item.user_id == current_user.id
+      @item.destroy
+    end
+    redirect_to root_path #記載方法でifの条件がtrueでもfalseでも redirect_to root_pathが読まれます。
+                          # つまり、ifの外に記述することと同義であるためです。
+  end
 
 private
 
