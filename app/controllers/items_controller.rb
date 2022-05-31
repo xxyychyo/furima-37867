@@ -40,12 +40,10 @@ class ItemsController < ApplicationController
      # ログインしているユーザーと同一であればデータを削除する
     if @item.user_id == current_user.id
       @item.destroy
-      redirect_to root_path
-    else
-      redirect_to root_path
     end
+    redirect_to root_path #記載方法でifの条件がtrueでもfalseでも redirect_to root_pathが読まれます。
+                          # つまり、ifの外に記述することと同義であるためです。
   end
-
 
 private
 
