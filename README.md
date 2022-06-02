@@ -43,11 +43,11 @@ has_one :purchase
 ## addressesテーブル
 | Column     | Type       | Options                        |
 |----------|----------|------------------------------|
-|postal_code    |string    |null: false|
+|postcode    |string    |null: false|
 |prefecture_id  |integer   |null: false|
-|municipality   |string    |null: false|
-|address        |string    |null: false|
-|building_name  |string    |   |
+|city           |string    |null: false|
+|block        |string    |null: false|
+|building  |string    |   |
 |phone_number   |string    |null: false|
 |purchase       |references|null: false foreign_key: true|
 
@@ -64,6 +64,6 @@ belongs_to :purchase
 Association
 belongs_to :user
 belongs_to :items
-has_one :address
+has_one :city
 
 
