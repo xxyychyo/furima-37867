@@ -4,9 +4,11 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
+// JavaScriptイベント発火をするために、画面遷移高速化のGemを無効化する。
 //require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("../card")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
+   # ログインしていないユーザーはログインページに促す
   before_action :authenticate_user!, except: [:index, :show]
   before_action :move_to_index, only: [:edit, :update,]
+   # 重複処理をまとめる
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -25,6 +27,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
+        # ログインしているユーザーと同一であればeditファイルが読み込まれる
+    if @item.user_id == current_user.id && @item.order.nil?
+    else
+       redirect_to root_path
+    end
   end
 
   def update
