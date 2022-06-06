@@ -11,6 +11,10 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :send_day
   belongs_to :status
+
+  validates :category_id, :situation_id, :derively_fee_id, :prefecture_id, :send_day_id,
+  numericality: { other_than: 1, message: "を選択してください" }
+
   # active_storageとのアソシエーション
   # （items・active_storage_blobsテーブルを関連付け）
   has_one_attached :image
@@ -27,7 +31,8 @@ class Item < ApplicationRecord
     validates :user
     validates :image
     # 300円以上かつ9,999,999円以下で、半角数字でないと入力不可
-    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
+    validates :price, presence: true, numericality: { only_integer: true,  greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
+    # presence: { message: "を選択してください" }
   end
   # ジャンルの選択が「--」の時は保存不可
   with_options numericality: { other_than: 0 } do
