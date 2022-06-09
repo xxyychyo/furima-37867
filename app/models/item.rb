@@ -12,7 +12,7 @@ class Item < ApplicationRecord
   belongs_to :send_day
   belongs_to :status
 
-  validates :category_id, :situation_id, :derively_fee_id, :prefecture_id, :send_day_id,
+  validates :category_id, :status_id, :derively_fee_id, :prefecture_id, :send_day_id,
   numericality: { other_than: 1, message: "を選択してください" }
 
   # active_storageとのアソシエーション
